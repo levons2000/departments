@@ -7,12 +7,18 @@
     tools:context=".LoginActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/splash_screen_gradient"
-        android:paddingBottom="100dp"/>
+        android:layout_width="500dp"
+        android:layout_height="970dp"
+        android:id="@+id/splash_background_image"
+        android:scaleType="fitXY"
+        android:src="@drawable/splash_screen_gradient"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -27,10 +33,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/splash_logo"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:src="@drawable/department_logo"/>
+            android:src="@drawable/department_logo" />
+
         <TextView
+            android:id="@+id/app_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/departments_application"
@@ -39,6 +48,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/app_version_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/application_version_string"
@@ -46,5 +56,15 @@
             android:textSize="19sp"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/login_fragment_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
