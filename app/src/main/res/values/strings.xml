@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Departments</string>
+    <string name="departments_application">Departments Application</string>
+    <string name="application_version_string">Version 1.0.0</string>
+</resources>
