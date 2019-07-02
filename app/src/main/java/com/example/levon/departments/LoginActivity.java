@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
+    public TextView splashTitleText;
+
     private ImageView splashBackgroundImage;
     private ImageView splashLogo;
     private TextView appNameText;
@@ -24,10 +26,20 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         initViews();
         beginSplashScreenAnimation();
-        //startLoginStep();
+    }
+
+    public void disableCurrentFragment() {
+        ((Disableable)getSupportFragmentManager().getFragments().get(
+                getSupportFragmentManager().getFragments().size() - 1)).disable();
+    }
+
+    public void enableCurrentFragment() {
+        ((Disableable)getSupportFragmentManager().getFragments().get(
+                getSupportFragmentManager().getFragments().size() - 1)).enable();
     }
 
     private void initViews() {
+        splashTitleText = findViewById(R.id.splash_title);
         splashBackgroundImage = findViewById(R.id.splash_background_image);
         splashLogo = findViewById(R.id.splash_logo);
         appNameText = findViewById(R.id.app_name_text);
@@ -60,12 +72,8 @@ public class LoginActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().
                 add(R.id.login_fragment_container, new LoginFragment()).
                 commit();
-        appearAnimation(fragmentConatiner, 0, 2000, new Runnable() {
-            @Override
-            public void run() {
-
-            }
-        });
+        appearAnimation(splashTitleText, 0, 2000, null);
+        appearAnimation(fragmentConatiner, 0, 2000, null);
     }
 
     private void disappearAnimation(final View view,
